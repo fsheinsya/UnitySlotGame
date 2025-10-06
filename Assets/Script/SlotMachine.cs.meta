@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: bdb73248d7939274794e34c764b9d609
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - resultText: {instanceID: 0}
+  - stageText: {instanceID: 0}
+  - jackpotSprite: {fileID: -283946904274796097, guid: cf42d6512a45a644f9dd9dc40be9e3ad, type: 3}
+  - sevenSprite: {fileID: 7044563021175377470, guid: 85a0d96bc3ca8a241896bb91b9fabf5b, type: 3}
+  - barSprite: {fileID: 3473314395253131417, guid: 085dc0a94d4254040a7360bc616b4f40, type: 3}
+  - diamondSprite: {fileID: 6586461156150141773, guid: 930f3ab0a82c04f4fb3c9469eba998c6, type: 3}
+  - watermelonSprite: {fileID: 1613170597931076546, guid: eaed65356f7feec438f3137f7409aa51, type: 3}
+  - cherrySprite: {fileID: -90375647409325229, guid: 580fcebceb952804384be30a368a1b2e, type: 3}
+  - bellSprite: {fileID: 3616512531535755360, guid: aa139f8bfd522c14b96fa33d09cefd02, type: 3}
+  - noneSprite: {fileID: 3616512531535755360, guid: aa139f8bfd522c14b96fa33d09cefd02, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
