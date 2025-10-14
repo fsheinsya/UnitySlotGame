@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Reelcontroller : MonoBehaviour
+public class ReelController : MonoBehaviour
 {
     public GameObject Reel; //リールを取得
     public GameObject Reel2;
@@ -23,9 +23,9 @@ public class Reelcontroller : MonoBehaviour
         initialpos2 = this.Reel2.transform.position;
         initialpos3 = this.Reel3.transform.position;
 
-        speed1 = -0.35f;　//リールの回転スピードの代入
-        speed2 = -0.35f;
-        speed3 = -0.35f;
+        speed1 = -1.00f;　//リールの回転スピードの代入
+        speed2 = -1.00f;
+        speed3 = -1.00f;
     }
     private void Update()　//ゲームが始まったら
     {
@@ -33,17 +33,17 @@ public class Reelcontroller : MonoBehaviour
         this.Reel2.transform.Translate(0, speed2, 0);
         this.Reel3.transform.Translate(0, speed3, 0);
 
-        if (Reel.transform.position.y < -3.78f)　//リールが一番下に来たら
+        if (Reel.transform.position.y < -400.0f)　//リールが一番下に来たら
         {
             this.Reel.transform.position = initialpos;　//初期位置に戻す
         }
 
-        if (Reel2.transform.position.y < -3.78f)
+        if (Reel2.transform.position.y < -400.0f)
         {
             this.Reel2.transform.position = initialpos2;
         }
 
-        if (Reel3.transform.position.y < -3.78f)
+        if (Reel3.transform.position.y < -400.0f)
         {
             this.Reel3.transform.position = initialpos3;
         }
@@ -52,18 +52,15 @@ public class Reelcontroller : MonoBehaviour
     public void stopReel() //この関数がボタン1を押すと呼ばれる
     {
         speed1 = 0;　//リールの回転スピードを０にする
-       
     }
 
     public void stopReel2()
     {
         speed2 = 0;
-
     }
 
     public void stopReel3()
     {
         speed3 = 0;
-
     }
 }
