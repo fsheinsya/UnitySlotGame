@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Button2 : MonoBehaviour
 {
-    private Image img;
+    public Image img;
     public ReelController reelcontroller;//reelcontrollerの使用
 
     // Start is called before the first frame update
@@ -17,7 +17,6 @@ public class Button2 : MonoBehaviour
     public void OnClick()
     {
         reelcontroller.stopReel2();//リールを止める関数を実
-        
-        img.sprite = Resources.Load<Sprite>("image/pushed_button"); //押したときにUIの変更
+        img.sprite = Resources.Load<Sprite>("image/button"); //押したときにUIの変更
     }
 }

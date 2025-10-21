@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ReelGenerator1 : MonoBehaviour
 {
@@ -25,11 +26,11 @@ public class ReelGenerator1 : MonoBehaviour
 
     public void GenerateReel()//リール生成関数本体
     {       
-            pos = GetComponent<Transform>();//リールのTransformはオブジェクト位置とする
+        pos = GetComponent<Transform>();//リールのTransformはオブジェクト位置とする
       
         for (int i = 0; i < 90; i++)
         {
-            Vector3 pos = new Vector3(0.0f, -120f + (120f * i), 0.0f);//プレハブ位置の決定
+            Vector3 pos = new Vector3(0.0f, -102.4f + (102.4f * i), 0.0f);//プレハブ位置の決定
             int tmp;
             int rand = Random.Range(0, 91);//0~91の数字をランダムで生成
             if (0 < rand && rand < div0 //もし数字が0～赤＄＄＄のしきい値以内だったら
