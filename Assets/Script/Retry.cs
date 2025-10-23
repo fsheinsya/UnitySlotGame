@@ -13,13 +13,19 @@ public class Retry : MonoBehaviour
     public Button2 btn2;
     public Button3 btn3;
 
+    public AudioClip RetrySound;
+    AudioSource audioSource;
+
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         reelcontroller = GameObject.Find("ReelController").GetComponent<ReelController>();//ReelControllerの取得
         reelgenerator = GameObject.Find("ReelGenerator1").GetComponent<ReelGenerator1>();//ReelGenerator1の取得\
     }
     public void OnClick()
     {
+        audioSource.PlayOneShot(RetrySound);
+        
         btn1.img.sprite = Resources.Load<Sprite>("image/pushed_button");
         btn2.img.sprite = Resources.Load<Sprite>("image/pushed_button"); 
         btn3.img.sprite = Resources.Load<Sprite>("image/pushed_button"); 

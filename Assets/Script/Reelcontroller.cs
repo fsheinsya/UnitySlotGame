@@ -41,9 +41,9 @@ public class ReelController : MonoBehaviour
         reelGenerator2.GenerateReel();
         reelGenerator3.GenerateReel();
 
-        speed1 = -300f;
-        speed2 = -300f;
-        speed3 = -300f;
+        speed1 = -600f;
+        speed2 = -600f;
+        speed3 = -600f;
 
         stopflag1 = false;
         stopflag2 = false;
