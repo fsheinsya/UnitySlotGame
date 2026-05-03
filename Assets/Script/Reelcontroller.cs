@@ -52,8 +52,6 @@ public class ReelController : MonoBehaviour
 
     public void Update()
     {
-        if (Reel == null || Reel2 == null || Reel3 == null) return;
-        
         Reel.transform.Translate(0, speed1, 0);
         Reel2.transform.Translate(0, speed2, 0);
         Reel3.transform.Translate(0, speed3, 0);
@@ -67,20 +65,20 @@ public class ReelController : MonoBehaviour
         if (Reel3.transform.position.y < -9000.0f)
             Reel3.transform.position = initialpos3;
 
-        if (stopflag1 && 0.87f <= Mathf.Abs(Reel.transform.position.y % 102.4f) / 102.4f &&
-            Mathf.Abs(Reel.transform.position.y % 102.4f) / 102.4f < 0.88f)
+        if (stopflag1 && 0.87f <= Mathf.Abs(Reel.transform.position.y % 102.4f) / 102.4f
+            && Mathf.Abs(Reel.transform.position.y % 102.4f) / 102.4f < 0.92f)
         {
             speed1 = 0;
         }
 
-        if (stopflag2 && 0.87f <= Mathf.Abs(Reel2.transform.position.y % 102.4f) / 102.4f &&
-            Mathf.Abs(Reel2.transform.position.y % 102.4f) / 102.4f < 0.88f)
+        if (stopflag2 && 0.87f <= Mathf.Abs(Reel2.transform.position.y % 102.4f) / 102.4f
+            && Mathf.Abs(Reel2.transform.position.y % 102.4f) / 102.4f < 0.92f)
         {
             speed2 = 0;
         }
 
-        if (stopflag3 && 0.87f <= Mathf.Abs(Reel3.transform.position.y % 102.4f) / 102.4f &&
-            Mathf.Abs(Reel3.transform.position.y % 102.4f) / 102.4f < 0.88f)
+        if (stopflag3 && 0.87f <= Mathf.Abs(Reel3.transform.position.y % 102.4f) / 102.4f
+            && Mathf.Abs(Reel3.transform.position.y % 102.4f) / 102.4f < 0.92f)
         {
             speed3 = 0;
         }
@@ -88,19 +86,22 @@ public class ReelController : MonoBehaviour
 
     public void stopReel()
     {
-        if (!stopflag1) speed1 = -75f;
+        if (!stopflag1)
+            speed1 = -100f;
         stopflag1 = true;
     }
 
     public void stopReel2()
     {
-        if (!stopflag2) speed2 = -75f;
+        if (!stopflag2)
+            speed2 = -100f;
         stopflag2 = true;
     }
 
     public void stopReel3()
     {
-        if (!stopflag3) speed3 = -75f;
+        if (!stopflag3)
+            speed3 = -100f;
         stopflag3 = true;
     }
 }

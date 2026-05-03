@@ -5,85 +5,65 @@ using UnityEngine.UI;
 
 public class ReelGenerator1 : MonoBehaviour
 {
-    public GameObject[] imgobj; //絵柄のプレハブを格納(計7種）
-    GameObject[] tmp_obj = new GameObject[90];//リールの配列（プレハブの種類が入る）
-    Transform[] img_pos = new Transform[90];//リールの柄の位置
+    public GameObject[] imgobj; // 絵柄のプレハブを格納(計7種）
+    GameObject[] tmp_obj = new GameObject[90]; // リールの配列
+    Transform[] img_pos = new Transform[90]; // 絵柄の位置格納用
 
-    Transform pos;  //リールのTransform
-  
-    int div0=7;//JackBotが出るしきい値
-    int div1=15;//777が出るしきい値
-    int div2=20;//BARが出るしきい値
-    int div3=40;//宝石が出るしきい値
-    int div4=55;//スイカが出るしきい値
-    int div5=80;//ベルが出るしきい値
-                //チェリーが出るしきい値
+    Transform pos; // リールのTransform参照
 
-    void Awake()//ゲーム開始時に
+    // 出現確率しきい値
+    int div0 = 7;   // Jackpot
+    int div1 = 15;  // 777
+    int div2 = 20;  // BAR
+    int div3 = 40;  // 宝石
+    int div4 = 55;  // スイカ
+    int div5 = 80;  // ベル
+    // それ以外はチェリー
+
+    void Awake()
     {
-        GenerateReel();//リール生成関数を呼び出す
+        GenerateReel(); // ゲーム開始時に生成
     }
 
-    public void GenerateReel()//リール生成関数本体
-    {       
-        pos = GetComponent<Transform>();//リールのTransformはオブジェクト位置とする
-      
+    public void GenerateReel()
+    {
+        pos = GetComponent<Transform>();
+
         for (int i = 0; i < 90; i++)
         {
-            Vector3 pos = new Vector3(0.0f, -102.4f + (102.4f * i), 0.0f);//プレハブ位置の決定
+            Vector3 localPos = new Vector3(0.0f, 102.4f * i, 0.0f);
             int tmp;
-            int rand = Random.Range(0, 91);//0~91の数字をランダムで生成
-            if (0 < rand && rand < div0 //もし数字が0～赤＄＄＄のしきい値以内だったら
-                )
-            {
-                tmp = 0;//赤＄＄＄の絵柄idをtempに代入
-            }
-            else if (div0 < rand && rand < div1 // もし数字が赤＄＄＄のしきい値～＄＄＄のしきい値以内だったら               
-                )
-            {
-                tmp = 1;//＄＄＄の絵柄idをtempに代入
-            }
-            else if (div1 < rand && rand < div2 //以下他の絵柄について同様に
-               )
-            {
-                tmp = 2;
-            }
-            else if (div2 < rand && rand < div3
-               )
-            {
-                tmp = 3;
-            }
-            else if (div3 < rand && rand < div4
-               )
-            {
-                tmp = 4;
-            }
-            else if (div4 < rand && rand < div5
-               )
-            {
-                tmp = 5;
-            }
-            else　
-            {
-                tmp = 6;
-            }
-            
+            int rand = Random.Range(0, 91);
 
-            tmp_obj[i] = (GameObject)Instantiate(imgobj[tmp]); //プレハブからtempの絵柄idのGameObjectを生成
-            tmp_obj[i].transform.SetParent(transform, false); //リールのオブジェクトを親にする
-            img_pos[i] = tmp_obj[i].GetComponent<Transform>();//プレハブのtransformを取得
-            img_pos[i].localPosition = pos;//プレハブ位置の代入
+            if (rand < div0)
+                tmp = 0;
+            else if (rand < div1)
+                tmp = 1;
+            else if (rand < div2)
+                tmp = 2;
+            else if (rand < div3)
+                tmp = 3;
+            else if (rand < div4)
+                tmp = 4;
+            else if (rand < div5)
+                tmp = 5;
+            else
+                tmp = 6;
+
+            // 絵柄を生成
+            tmp_obj[i] = Instantiate(imgobj[tmp]);
+            tmp_obj[i].transform.SetParent(transform, false);
+            img_pos[i] = tmp_obj[i].GetComponent<Transform>();
+            img_pos[i].localPosition = localPos; // 絵柄の配置
         }
     }
 
-    public void DestroyReel() {　//リールをデストロイしてリセットする関数
-
-    GameObject[] reels = GameObject.FindGameObjectsWithTag("reel"); //reelタグが付いているオブジェクトをすべて取得
-
-        foreach (GameObject i in reels)//各reelsのオブジェクトに対して以下を行う
+    public void DestroyReel()
+    {
+        GameObject[] reels = GameObject.FindGameObjectsWithTag("reel");
+        foreach (GameObject i in reels)
         {
-            Destroy(i);//reelsの各オブジェクトを破壊する
-
+            Destroy(i);
         }
     }
 }
